@@ -40,6 +40,18 @@ public class Game extends GameObject {
     		timer = 0;
     	}
     	
+    	//check the asteroids to see if they've been shot
+    	for(int i = 0; i < asteroids.size(); i++){
+    		if(asteroids.get(i).wasShot())
+    			points+=100;
+    	}
+    	
+    	//remove any asteroids that have gone off the screen (been shot or just let behind)
+    	for(int i = 0; i < asteroids.size(); i++){
+    		if(asteroids.get(i).isOffScreen())
+    			asteroids.remove(i);
+    	}
+    	
     	if(!ship.isAlive()){
     		gameOver();
     		//newGame();
@@ -57,7 +69,7 @@ public class Game extends GameObject {
 		g.setColor(Color.GREEN);
 		g.drawString("Lasers: " + ship.getLasers() , 20, 20);
 		g.drawString("Points: " + points, 20, 40);
-		g.drawString("asteroids: " + asteroids.size(), 20, 60);
 		super.draw(g);
 	}
 }
+

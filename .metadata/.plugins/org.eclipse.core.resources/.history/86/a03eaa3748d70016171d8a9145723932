@@ -1,0 +1,14 @@
+
+public class Explosion extends GameObject{
+	
+	public Explosion(GameObject o){
+		super(o, "explosion");
+	}
+	
+	public Explosion(double xPos, double yPos){
+		super(xPos, yPos, "explosion");
+	}
+	
+	
+
+}

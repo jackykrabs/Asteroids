@@ -1,0 +1,49 @@
+
+public class Ship extends GameObject{
+	int lasers;
+	int shields;
+	boolean alive;
+	
+	public Ship(){
+		super(300,20,"ship");
+		this.getKeyFocus();
+		setTeam(1);
+		lasers = 20;
+		shields = 4;
+		alive = true;
+	}
+	
+	public void keyLeftPressed(){
+		this.setVX(-5);
+	}
+	
+	public void keyLeftReleased(){
+		this.setVX(0);
+	}
+	
+	public void keyRightPressed(){
+		this.setVX(5);
+	}
+	
+	public void keyRightReleased(){
+		this.setVX(0);
+	}
+	
+	public void keySpacePressed(){
+		if(lasers > 0){
+			new Laser(this);
+		}
+	}
+	
+	public void collision(GameObject o){
+		if(shields == 0){
+			super.collision(o);
+			alive = false;
+		}
+		shields--;
+	}
+	
+	public boolean isAlive(){
+		return alive;
+	}
+}

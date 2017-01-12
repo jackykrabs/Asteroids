@@ -3,31 +3,41 @@
  asteroids game
  */
 import java.util.Random;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Asteroid extends GameObject {
-
 	//default constructor
 	public Asteroid(){
-		super(new Random().nextDouble()*560+20, 580, "asteroid");
+		super(new Random().nextDouble()*560+20, 600, "asteroid");
+		
 		this.setRadius(16);
 		this.setTeam(2);
 		this.setRadius(16);
 		this.setVY(-5);
 	}
 	
+	//constructor to create the asteroids that spawn after getting shot
 	public Asteroid(Asteroid oldRock){
 		Asteroid asteroid = new Asteroid();
 		asteroid.setPosition(oldRock.getX(), oldRock.getY());
 		asteroid.setVX(10);
 	}
+
 	
 	public void die(){
 		super.die();
 		new Explosion(this);
-		Asteroid leftAsteroid = new Asteroid(this);
-		Asteroid rightAsteroid = new Asteroid(this);
-		//leftAsteroid.setVX(-4);
-		//rightAsteroid.setVX(4);
+	}
+	
+	//override draw method to make fun circles!
+	public void draw(Graphics g){
+		super.draw(g);
+	}
+	
+	//make it so the asteroids go away when they go off the screen
+	public void offScreen(){
+		this.vanish();
 	}
 	
 }

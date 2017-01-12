@@ -1,0 +1,33 @@
+/*
+ This class extends GameObject in order to more easily create asteroids for use in our 
+ asteroids game
+ */
+import java.util.Random;
+
+public class Asteroid extends GameObject {
+
+	//default constructor
+	public Asteroid(){
+		super(new Random().nextDouble()*560+20, 580, "asteroid");
+		this.setRadius(16);
+		this.setTeam(2);
+		this.setRadius(16);
+		this.setVY(-5);
+	}
+	
+	public Asteroid(Asteroid oldRock){
+		Asteroid asteroid = new Asteroid();
+		asteroid.setPosition(oldRock.getX(), oldRock.getY());
+		asteroid.setVX(10);
+	}
+	
+	public void die(){
+		super.die();
+		new Explosion(this);
+		Asteroid leftAsteroid = new Asteroid(this);
+		Asteroid rightAsteroid = new Asteroid(this);
+		//leftAsteroid.setVX(-4);
+		//rightAsteroid.setVX(4);
+	}
+	
+}

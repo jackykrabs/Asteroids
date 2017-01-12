@@ -1,0 +1,8 @@
+
+public class Laser extends GameObject {
+	public Laser(GameObject shooter){
+		super(shooter,"laser");
+		this.setVY(10);
+		this.setRadius(4);
+	}
+}

@@ -1,0 +1,17 @@
+import java.util.Random;
+
+public class Laser extends GameObject {
+	public Laser(GameObject shooter){
+		super(shooter,"laser");
+		this.setVY(10);
+		this.setRadius(4);
+		this.setTeam(1);
+		this.setVX(0);
+	}
+	
+	public void collision(GameObject o){
+		if(new Random().nextInt(3) == 0)
+			super.collision(o);
+	}
+	
+}

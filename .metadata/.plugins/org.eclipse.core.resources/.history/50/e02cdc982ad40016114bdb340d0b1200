@@ -1,0 +1,24 @@
+
+public class Ship extends GameObject{
+		
+	public Ship(){
+		super(300,20,"ship");
+		this.getKeyFocus();
+	}
+	
+	public void keySpacePressed(){
+		this.setVX(-5);
+	}
+	
+	public void keyLeftReleased(){
+		this.setVX(0);
+	}
+	
+	public void keyRightPressed(){
+		this.setVX(5);
+	}
+	
+	public void keyRightReleased(){
+		this.setVX(0);
+	}
+}

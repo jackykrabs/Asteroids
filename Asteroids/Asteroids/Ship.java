@@ -35,6 +35,7 @@ public class Ship extends GameObject{
 	public void keySpacePressed(){
 		if(lasers > 0){
 			new Laser(this);
+			lasers--;
 		}
 	}
 	
@@ -45,6 +46,11 @@ public class Ship extends GameObject{
 			super.collision(o);
 			alive = false;
 		}
+	}
+	
+	//return the number of shots the ship has left
+	public int getLasers(){
+		return lasers;
 	}
 	
 	public boolean isAlive(){

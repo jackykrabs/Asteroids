@@ -8,6 +8,10 @@ public class Laser extends GameObject {
 		this.setVX(0);
 	}
 	
+	//make it so the lasers go away when they go off the screen
+	public void offScreen(){
+		this.vanish();
+	}
 	
 	
 }
